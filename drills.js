@@ -117,7 +117,6 @@ class BinarySearchTree {
     }
 }
 }
-
 // pre order 35 25 15 14 19 27 89 79 91 90
 // post order 14 19 15 27 25 79 90 91 89 35
 
@@ -163,15 +162,6 @@ const BST = new BinarySearchTree();
 // BST.insert(22)
 // BST.dsfInOrder();
 
-BST.insert(5, 'Captain Picard')
-BST.insert(3, 'Commander Riker')
-BST.insert(2, 'Lt. Cmdr. Worf')
-BST.insert(1, 'Lieutenant security officer')
-BST.insert(4, 'Lt. Cmdr. LaForge')
-BST.insert(6,'Commander Data')
-BST.insert(8, 'Lt. Cmdr. Crusher')
-BST.insert(7, 'Lieutenant Selar')
-
 class _Node {
   constructor(value) {
       this.value=value,
@@ -214,6 +204,15 @@ class Queue {
   }
 }
 
+BST.insert(5, 'Captain Picard')
+BST.insert(3, 'Commander Riker')
+BST.insert(2, 'Lt. Cmdr. Worf')
+BST.insert(1, 'Lieutenant security officer')
+BST.insert(4, 'Lt. Cmdr. LaForge')
+BST.insert(6,'Commander Data')
+BST.insert(8, 'Lt. Cmdr. Crusher')
+BST.insert(7, 'Lieutenant Selar')
+
 function dsfPreOrder(tree){
   let array = [];
 
@@ -232,8 +231,6 @@ function dsfPreOrder(tree){
 }
 
 // console.log(dsfPreOrder(BST))
-
-// let sorted = BST.dsfPreOrder();
 
 
 function nextOfficer(tree, values = []){
@@ -259,6 +256,19 @@ function nextOfficer(tree, values = []){
 }
 
 // console.log(nextOfficer(BST))
+
+// 7. Max profit
+
+// input: [128, 97, 121, 123, 98, 97, 105]
+// output: 26 profit, buy monday, sell wednesday
+
+
+function maxProfit(array){
+  let tree = new BinarySearchTree();
+  for(let i=0; i<array.length; i++){
+    
+  }
+}
 
 
 
