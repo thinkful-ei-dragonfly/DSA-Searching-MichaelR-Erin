@@ -264,13 +264,65 @@ function nextOfficer(tree, values = []){
 
 
 function maxProfit(array){
-  let tree = new BinarySearchTree();
-  for(let i=0; i<array.length; i++){
-    
-  }
+    if (!array.length) {
+        return 0;
+    }
+    let buy = array[0];
+    let sell = array[0];
+    let profit = 0;
+    for(let i=1; i<array.length; i++){
+        sell = array[i];
+        if (sell > buy) {
+            buy = sell;
+        }
+        if (sell - buy > profit) {
+            profit = sell - buy;
+        }
+    }
+    return profit;
 }
 
+//sample input
+const library = [
+    { author: 'Cowlishaw, Mike', dewey: '005.133', title: 'The REXX Language' },
+    { author: 'Sams', dewey: '005.133', title: 'Teach Yourself C++ In 21 Days' },
+    { author: 'Stroustrup., Bjarne', dewey: '005.133', title: 'The C++ Programming Language' },
+    { author: 'Crockford, Douglas', dewey: '005.2762', title: 'JavaScript: The Good Parts' },
+    { author: 'Flanagan, David', dewey: '005.2762', title: 'JavaScript: The Definitive Guide' },
+    { author: 'Schmidt, Meinhard', dewey: '005.44684', title: 'Windows Vista for Dummies' },
+    { author: 'Zondervan', dewey: '220.52081', title: 'NIV Study Bible' },
+    { author:'Humphries, Russell, Dr.', dewey: '231.7652', title: 'Starlight and Time' },
+    { author: 'Jane, Frederick Thomas', dewey: '623.82509051', title: 'Jane\'s Fighting Ships' },
+    { author: 'Norris, Chuck', dewey: '796.8092', title: 'The Official Chuck Norris Fact Book' }
+  ];
 
+function findBook(lib, dewey, title) {
+    let start = 0, end = lib.length;
+    while (start < end) {
+        let middle = Math.floor((start + end) / 2);
+        if (lib[middle].dewey === dewey) {
+            if (lib[middle].title === title) {
+                return lib[middle];
+            }
+            for (let i = middle + 1; lib[idx].dewey == dewey; i++) {
+                if (lib[i].title == title) {
+                    return lib[i];
+                }
+            }
+            for (let i = middle - 1; lib[idx].dewey == dewey; --idx) {
+                if (lib[i].title == title) {
+                    return lib[i];
+                }
+            }
+            return null;
+        }
+        if (lib[middle].dewey < dewey) {
+            start = middle + 1;
+        } else {
+            end = middle - 1;
+        }
+        return null;
+    }
+}
 
-
-
+console.log(findBook(library, '005.44684', 'Windows Vista for Dummies'));
